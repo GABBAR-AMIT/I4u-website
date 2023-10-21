@@ -18,13 +18,6 @@ def home(request):
         mail.save()
     return render(request,"index.html")
 
-"""def AIML(request):
-    if request.method == 'POST':
-        email=request.POST.get('email')
-        mail=updates(email=email)
-        mail.save()
-    return render(request, "AIML.html")"""
-
 def certification(request):
     if request.method == 'POST':
         email=request.POST.get('email')
