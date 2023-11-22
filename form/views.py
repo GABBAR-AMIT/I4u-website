@@ -20,7 +20,6 @@ def pro_detail(request,pk):
     # branch=Branches.objects.get(name=pk)
     projects=Project.objects.filter(title=pk)
     project = projects.first()
-    print(projects)
     x=([i.components for i in projects])
     data=(x[0].split("\r\n"))
     branch_name = project.branch.name
