@@ -145,10 +145,13 @@
                     </div>
                         <div style="text-align: justify" class="full">
                         <p>
-                            {% for project in detail %}
+                            {% comment %} {% for project in detail %}
                                 {% for component in project.components.split %}
-                                    {{ component }}<br>
+                                    {{ component }}
                                 {% endfor %}
+                            {% endfor %} {% endcomment %}
+                            {% for i in data %}
+                                {{i}}<br>
                             {% endfor %}
                         </p>
                         </div>
@@ -184,6 +187,10 @@
             </div>
         </div>
     </div>
+    <div style="align-items:center; display:grid">
+        <a href="/register" class="btn btn-primary btn-lg">Project Enquiry</a>
+    </div>
+    
     <!-- end section -->
 <!-- Start Footer -->
     <footer class="footer-box">

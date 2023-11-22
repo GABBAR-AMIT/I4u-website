@@ -54,6 +54,29 @@
         transform: scale(1.05);
     }
 </style>
+
+<script>
+    function searchProjects() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("projectTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0]; // Change the index based on the column you want to search
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
 <div class="row">
     <div class="col">
         <div class="card card-3d">
@@ -101,8 +124,14 @@
 </div>
 <div class="row">
     <div class="col">
+        <!-- Search form -->
+        <form class="mb-3">
+            <label for="searchInput" class="form-label">Search Projects:</label>
+            <input type="text" class="form-control" id="searchInput" onkeyup="searchProjects()" placeholder="Enter title to search">
+        </form>
+
         <h1>All Projects </h1>
-        <table class="cool-table">
+        <table id="projectTable" class="cool-table">
             <thead>
                 <tr>
                     <th>Title</th>

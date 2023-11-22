@@ -1,5 +1,6 @@
 {% extends "adminbase.html" %}
 {% block adminpage %}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <div class="row">
     <div class="col">
         <div class="card card-3d">
@@ -34,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="components" class="form-label">Components</label>
-                        <input type="text" class="form-control" id="components" name='components' value="{{projects.components}}">
+                        <textarea class="form-control" id="components" name='components'>{{projects.components}}</textarea>
                     </div>
                     <div class="mb-3">
                         <label for="appArea" class="form-label">Application area</label>
@@ -46,4 +47,15 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        // Prevent form submission on Enter key press, except for textareas
+        $('form').keypress(function (e) {
+            if (e.which === 13 && e.target.nodeName !== 'TEXTAREA') {
+                e.preventDefault();
+                // Perform your custom logic here instead of submitting the form
+            }
+        });
+    });
+</script>
 {% endblock adminpage %}
